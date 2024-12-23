@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -32,10 +33,11 @@ public class ClienteControllerTest {
 
     @BeforeEach
     public void setup() {
-        MockitoAnnotations.openMocks(this); // Garante a inicialização dos mocks
+        MockitoAnnotations.openMocks(this); 
     }
 
     @Test
+    @WithMockUser(username = "user", password = "user123")
     public void testCriarCliente() throws Exception {
         Cliente cliente = new Cliente();
         cliente.setId(1L);
@@ -53,6 +55,7 @@ public class ClienteControllerTest {
     }
 
     @Test
+    @WithMockUser(username = "user", password = "user123")
     public void testGetCliente() throws Exception {
         Cliente cliente = new Cliente();
         cliente.setId(1L);
