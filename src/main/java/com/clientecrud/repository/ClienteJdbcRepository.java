@@ -20,9 +20,6 @@ public class ClienteJdbcRepository {
 		try {
 			return jdbcTemplate.query(sql, (rs, rowNum) -> {
 				Cliente cliente = new Cliente();
-				cliente.setId(rs.getLong("id"));
-				cliente.setNome(rs.getString("nome"));
-				cliente.setEmail(rs.getString("email"));
 				return cliente;
 			});
 		} catch (DataAccessException e) {

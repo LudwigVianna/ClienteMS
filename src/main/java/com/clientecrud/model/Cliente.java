@@ -16,7 +16,7 @@ import lombok.Setter;
 
 
 @Table(name="cliente")
-@Entity(name="cliente")
+@Entity
 @EqualsAndHashCode(of = "id")
 @Getter
 @Setter 
